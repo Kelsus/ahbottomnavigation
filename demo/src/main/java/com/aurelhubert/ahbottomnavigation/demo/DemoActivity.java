@@ -308,4 +308,8 @@ public class DemoActivity extends AppCompatActivity {
 		return bottomNavigation.getItemsCount();
 	}
 
+	public void changeIcon() {
+		bottomNavigation.changeIcon(1, R.drawable.ic_maps_local_restaurant, R.drawable.ic_content_add);
+	}
+
 }

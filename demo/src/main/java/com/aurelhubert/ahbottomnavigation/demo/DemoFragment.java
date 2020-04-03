@@ -15,6 +15,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.Spinner;
@@ -70,6 +71,7 @@ public class DemoFragment extends Fragment {
 		final SwitchCompat showSelectedBackground = view.findViewById(R.id.fragment_demo_selected_background);
 		final Spinner spinnerTitleState = view.findViewById(R.id.fragment_demo_title_state);
 		final SwitchCompat switchTranslucentNavigation = view.findViewById(R.id.fragment_demo_translucent_navigation);
+		final Button changeIconButton = view.findViewById(R.id.changeIconButton);
 		
 		switchColored.setChecked(demoActivity.isBottomNavigationColored());
 		switchFiveItems.setChecked(demoActivity.getBottomNavigationNbItems() == 5);
@@ -133,6 +135,14 @@ public class DemoFragment extends Fragment {
 				// do nothing
 			}
 		});
+
+		changeIconButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				demoActivity.changeIcon();
+			}
+		});
+
 	}
 	
 	/**
