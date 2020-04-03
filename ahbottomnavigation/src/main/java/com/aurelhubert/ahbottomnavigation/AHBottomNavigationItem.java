@@ -137,9 +137,9 @@ public class AHBottomNavigationItem {
 		this.color = 0;
 	}
 
-	public Drawable getDrawable(Context context, boolean isCurrent, int index) {
+	public Drawable getDrawable(Context context, boolean isCurrent) {
 		if (isCurrent) {
-			return getSelectedDrawable(context, index);
+			return getSelectedDrawable(context);
 		} else {
 			if (drawableRes != 0) {
 				try {
@@ -162,7 +162,7 @@ public class AHBottomNavigationItem {
 		this.drawableRes = 0;
 	}
 
-	private Drawable getSelectedDrawable(Context context, int index) {
+	private Drawable getSelectedDrawable(Context context) {
 		if (selectedDrawableRes != 0) {
 			try {
 				return AppCompatResources.getDrawable(context, selectedDrawableRes);
@@ -170,7 +170,7 @@ public class AHBottomNavigationItem {
 				return ContextCompat.getDrawable(context, selectedDrawableRes);
 			}
 		} else {
-			return getDrawable(context, false, index);
+			return getDrawable(context, false);
 		}
 	}
 
