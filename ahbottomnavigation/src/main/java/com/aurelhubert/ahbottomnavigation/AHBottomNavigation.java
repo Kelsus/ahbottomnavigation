@@ -1683,14 +1683,18 @@ public class AHBottomNavigation extends FrameLayout {
 		if (selectedBackgroundVisible) {
 			view.setSelected(index == currentItem);
 		}
-		final TextView title = (TextView) view.findViewById(R.id.bottom_navigation_item_title);
+
+		int color = itemInactiveColor;
+		if (index ==currentItem) {
+			color = itemActiveColor;
+		}
+
 		final ImageView icon = (ImageView) view.findViewById(R.id.bottom_navigation_item_icon);
-		final TextView notification = (TextView) view.findViewById(R.id.bottom_navigation_notification);
 		if (forceTint) {
-			AHHelper.updateDrawableColor(context, items.get(index).getDrawable(context, true), icon,
-					itemInactiveColor, itemActiveColor, forceTint);
+			AHHelper.updateDrawableColor(context, items.get(index).getDrawable(context, index == currentItem), icon,
+					color, color, forceTint);
 		} else {
-			icon.setImageDrawable(items.get(index).getDrawable(context, true));
+			icon.setImageDrawable(items.get(index).getDrawable(context, index == currentItem));
 			icon.requestLayout();
 		}
 	}
